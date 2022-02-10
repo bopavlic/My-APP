@@ -38,7 +38,7 @@ const NavBar: React.FC<NavbarProps> = (props) => {
           </Typography>
           <FormGroup>
             <FormControlLabel
-              control={<Switch aria-label='login switch' />}
+              control={<Switch />}
               checked={darkMode}
               onChange={handleModeSwitch}
               label={darkMode ? <LightbulbIcon /> : <DarkModeIcon />}
