@@ -1,13 +1,12 @@
 import { makeStyles } from '@mui/styles';
 
-export const useStyles = makeStyles({
-  root: {
+export const useNavBarStyles = makeStyles({
+  navBar: {
+    backgroundImage:
+      'linear-gradient(to right, #ff0000, #ff4300, #ff6200, #ff7a00, #ff9000)',
     height: '8vh',
-    padding: '2rem',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
   },
   navBar__icon: {
-    transform: 'scale(2)',
+    transform: 'scale(1.7)',
   },
 });

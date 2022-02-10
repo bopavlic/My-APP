@@ -9,6 +9,7 @@ import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import { NavbarProps } from './types';
+import { useNavBarStyles } from './styled';
 
 const NavBar: React.FC<NavbarProps> = (props) => {
   const { darkMode, setDarkMode } = props;
@@ -17,11 +18,11 @@ const NavBar: React.FC<NavbarProps> = (props) => {
     setDarkMode((state) => !state);
   };
 
-  console.log(darkMode);
+  const classes = useNavBarStyles();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static' color='primary'>
+      <AppBar position='static'>
         <Toolbar>
           <IconButton
             size='large'
@@ -30,7 +31,7 @@ const NavBar: React.FC<NavbarProps> = (props) => {
             aria-label='menu'
             sx={{ mr: 2 }}
           >
-            <CatchingPokemonIcon />
+            <CatchingPokemonIcon className={classes.navBar__icon} />
           </IconButton>
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             Pokemon DEMO
