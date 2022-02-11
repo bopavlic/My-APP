@@ -33,8 +33,8 @@ const NavBar: React.FC<NavbarProps> = (props) => {
           >
             <CatchingPokemonIcon className={classes.navBar__icon} />
           </IconButton>
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            Pokemon DEMO
+          <Typography variant='h6' sx={{ flexGrow: 1 }}>
+            POKEMON
           </Typography>
           <FormGroup>
             <FormControlLabel

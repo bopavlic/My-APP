@@ -13,7 +13,7 @@ const App = () => {
     <div className='app'>
       <ThemeProvider theme={darkMode ? darkTheme : theme}>
         <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Paper sx={{ height: '92vh', borderRadius: 0 }}>
+        <Paper sx={{ borderRadius: 0 }}>
           <PokemonList />
         </Paper>
       </ThemeProvider>
