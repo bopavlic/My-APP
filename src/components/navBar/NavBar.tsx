@@ -21,7 +21,7 @@ const NavBar: React.FC<NavbarProps> = (props) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+      <AppBar sx={{ top: '0px' }} position='fixed'>
         <Toolbar>
           <IconButton
             size='large'
@@ -32,7 +32,7 @@ const NavBar: React.FC<NavbarProps> = (props) => {
           >
             <CatchingPokemonIcon className={classes.navBar__icon} />
           </IconButton>
-          <Typography variant='h6' sx={{ flexGrow: 1 }}>
+          <Typography variant='h5' sx={{ flexGrow: 1 }}>
             POKEMON
           </Typography>
           <FormGroup>

@@ -1,7 +1,7 @@
 import createPalette from '@mui/material/styles/createPalette';
 
 export const collorPallete = {
-  gray: '#f4f1de',
+  gray: '#fffdf0',
   red: '#e07a5f',
   blue: '#3d405b',
   green: '#81b29a',

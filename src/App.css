@@ -3,3 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+h1 {
+  font-size: 5.9vw;
+}
+h2 {
+  font-size: 3vh;
+}
+p {
+  font-size: 2vmin;
+}
+
+/* prevent hiding content behind NavBar */
+body {
+  padding-top: 65px;
+}
