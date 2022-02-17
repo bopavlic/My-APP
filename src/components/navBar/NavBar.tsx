@@ -21,8 +21,8 @@ const NavBar: React.FC<NavbarProps> = (props) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={{ top: '0px' }} position='fixed'>
-        <Toolbar>
+      <AppBar position='fixed'>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             size='large'
             edge='start'

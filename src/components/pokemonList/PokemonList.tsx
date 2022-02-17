@@ -8,12 +8,14 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import InfoIcon from '@mui/icons-material/Info';
+import { usePokemonListStyles } from './styled';
+import { capitalizeFirstLetter } from '../../services/pokemon/helpers/capitalizeFirstLetter';
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const classes = usePokemonListStyles();
 
   const handlePageChange = async (
     event: React.ChangeEvent<any>,
@@ -29,10 +31,8 @@ const PokemonList = () => {
   };
 
   const handlePokemonId = (url: string) => {
-    // const lastPart = url.slice(-6, -1);
-    // const onlyNumbers = lastPart.replace(/\D[^.]/g, '');
     const splitted = url.split('/');
-    const id = splitted[6];
+    const id = splitted[splitted.length - 2];
     return id;
   };
 
@@ -50,27 +50,27 @@ const PokemonList = () => {
   }, [pageNumber]);
 
   return (
-    <Box p={4}>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+    <Box className={classes.pokemonList}>
+      <Box className={classes.pokemonList__inner}>
         {!isLoading ? (
           pokemonList?.map((pokemon: Pokemon, index: number) => (
-            <Box p={1} key={index}>
-              <Paper sx={{ width: '280px', height: '280px' }}>
-                <Typography variant='h6'>name: {pokemon.name}</Typography>
-                <Typography variant='h6'>
-                  id: {handlePokemonId(pokemon.url)}
-                </Typography>
-                <InfoIcon onClick={() => handlePokemonId(pokemon.url)} />
-              </Paper>
-            </Box>
+            <Paper key={index} className={classes.paper}>
+              <Typography variant='h5'>
+                {capitalizeFirstLetter(pokemon.name)}
+              </Typography>
+              <Typography variant='h6'>
+                id: {handlePokemonId(pokemon.url)}
+              </Typography>
+            </Paper>
           ))
         ) : (
+          //center the progress spinner
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <CircularProgress />
           </Box>
         )}
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
         <Pagination
           onChange={handlePageChange}
           page={pageNumber}
