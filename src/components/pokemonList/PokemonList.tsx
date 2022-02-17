@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { usePokemonListStyles } from './styled';
-import { capitalizeFirstLetter } from '../../services/pokemon/helpers/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '../../services/helpers/capitalizeFirstLetter';
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
