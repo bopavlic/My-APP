@@ -74,7 +74,7 @@ const PokemonList = () => {
         <Pagination
           onChange={handlePageChange}
           page={pageNumber}
-          count={55}
+          count={56}
           size='large'
         />
       </Box>

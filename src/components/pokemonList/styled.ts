@@ -17,7 +17,8 @@ export const usePokemonListStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    width: '250px',
-    height: '250px',
+    width: '19rem',
+    height: '19rem',
+    marginTop: '1rem',
   },
 });
