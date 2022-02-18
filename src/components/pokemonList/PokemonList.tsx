@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchPokemons } from '../../services/pokemon/api';
-import { Pokemon } from './types';
+import { Pokemon, PokemonListProps } from './types';
 import {
   Box,
   CircularProgress,
@@ -11,7 +11,8 @@ import {
 import { usePokemonListStyles } from './styled';
 import { capitalizeFirstLetter } from '../../services/helpers/capitalizeFirstLetter';
 
-const PokemonList = () => {
+const PokemonList: React.FC<PokemonListProps> = (props) => {
+  const { darkMode } = props;
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -40,7 +41,7 @@ const PokemonList = () => {
     (async () => {
       setIsLoading(true);
       try {
-        const result = await fetchPokemons(pageNumber * 20); //20 per page
+        const result = await fetchPokemons(pageNumber * 20); //20 pokemons per page
         setPokemonList(result.pokemons);
       } catch (error) {
         console.error(error);
@@ -51,10 +52,17 @@ const PokemonList = () => {
 
   return (
     <Box className={classes.pokemonList}>
+      <Typography sx={{ textAlign: 'center', padding: '1rem' }} variant='h4'>
+        Pokemon list
+      </Typography>
       <Box className={classes.pokemonList__inner}>
         {!isLoading ? (
           pokemonList?.map((pokemon: Pokemon, index: number) => (
-            <Paper key={index} className={classes.paper}>
+            <Paper
+              key={index}
+              className={classes.paper}
+              elevation={darkMode ? 16 : 4}
+            >
               <Typography variant='h5'>
                 {capitalizeFirstLetter(pokemon.name)}
               </Typography>

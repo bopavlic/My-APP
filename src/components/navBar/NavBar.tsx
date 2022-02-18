@@ -7,10 +7,10 @@ import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import { NavbarProps } from './types';
+import { NavBarProps } from './types';
 import { useNavBarStyles } from './styled';
 
-const NavBar: React.FC<NavbarProps> = (props) => {
+const NavBar: React.FC<NavBarProps> = (props) => {
   const { darkMode, setDarkMode } = props;
 
   const handleModeSwitch = () => {

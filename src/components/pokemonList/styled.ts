@@ -19,6 +19,5 @@ export const usePokemonListStyles = makeStyles({
     flexDirection: 'column',
     width: '19rem',
     height: '19rem',
-    marginTop: '1rem',
   },
 });

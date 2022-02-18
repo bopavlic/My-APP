@@ -5,6 +5,7 @@ import { Paper } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { darkTheme, theme } from './style/theme';
 import PokemonList from './components/pokemonList/PokemonList';
+import ReduxPlayground from './components/reduxPlayground/ReduxPlayground';
 
 const App = () => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -14,7 +15,8 @@ const App = () => {
       <ThemeProvider theme={darkMode ? darkTheme : theme}>
         <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Paper sx={{ borderRadius: 0 }}>
-          <PokemonList />
+          <PokemonList darkMode={darkMode} />
+          <ReduxPlayground />
         </Paper>
       </ThemeProvider>
     </div>
