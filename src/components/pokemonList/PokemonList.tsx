@@ -56,6 +56,7 @@ const PokemonList: React.FC<PokemonListProps> = (props) => {
         Pokemon list
       </Typography>
       <Box className={classes.pokemonList__inner}>
+        {/* -- showing fetched pokemons */}
         {!isLoading ? (
           pokemonList?.map((pokemon: Pokemon, index: number) => (
             <Paper
@@ -72,7 +73,7 @@ const PokemonList: React.FC<PokemonListProps> = (props) => {
             </Paper>
           ))
         ) : (
-          //center the progress spinner
+          //show and center spinner while loading
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <CircularProgress />
           </Box>
