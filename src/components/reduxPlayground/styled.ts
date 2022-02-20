@@ -4,13 +4,15 @@ export const useReduxPlaygroundStyles = makeStyles({
   reduxPlayground: {
     maxWidth: '1440px',
     margin: '0 auto',
-    border: '2px solid red',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gap: '1rem',
   },
   reduxPlayground__left: {
-    backgroundColor: 'blue',
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '1rem',
+    margin: '1rem',
   },
   reduxPlayground__right: {
     backgroundColor: 'green',
