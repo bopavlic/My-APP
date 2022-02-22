@@ -21,6 +21,14 @@ export const useReduxPlaygroundStyles = makeStyles((theme) => {
     reduxPlayground__right: {
       display: 'flex',
       justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column',
+      gap: '1rem',
+    },
+    image: {
+      height: '300px',
+      width: '400px',
+      objectFit: 'cover',
     },
   };
 });

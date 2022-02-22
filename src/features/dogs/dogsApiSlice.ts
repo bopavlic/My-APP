@@ -15,7 +15,7 @@ export const dogsApi = createApi({
   endpoints(builder) {
     return {
       fetchBreeds: builder.query<Breed[], number | void>({
-        query(limit = 1) {
+        query(limit = 10) {
           return `/breeds?limit=${limit}`;
         },
       }),
