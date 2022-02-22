@@ -17,5 +17,4 @@ p {
 /* prevent hiding content behind NavBar */
 body {
   padding-top: 65px;
-  background-color: #fffdf0;
 }
