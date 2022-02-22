@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Breed } from './types';
 
-const DOGS_API_KEY = '06764e46-3709-482d-9a03-006733e93be1';
+const DOGS_API_KEY: string = process.env.REACT_APP_DOGS_API_KEY as string;
 
 export const dogsApi = createApi({
   reducerPath: 'dogsApi',
@@ -9,7 +9,6 @@ export const dogsApi = createApi({
     baseUrl: 'https://api.thedogapi.com/v1',
     prepareHeaders(headers) {
       headers.set('x-api-key', DOGS_API_KEY);
-
       return headers;
     },
   }),
