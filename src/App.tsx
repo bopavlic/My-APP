@@ -16,7 +16,7 @@ const App = () => {
         <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Paper sx={{ borderRadius: 0 }}>
           <PokemonList darkMode={darkMode} />
-          <ReduxPlayground />
+          <ReduxPlayground darkMode={darkMode} />
         </Paper>
       </ThemeProvider>
     </div>

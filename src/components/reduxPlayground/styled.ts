@@ -14,7 +14,8 @@ export const useReduxPlaygroundStyles = makeStyles((theme) => {
     },
     reduxPlayground__left: {
       display: 'flex',
-      justifyContent: 'center',
+      flexDirection: 'column',
+      alignItems: 'center',
       gap: '1rem',
       margin: '1rem',
     },
@@ -24,6 +25,24 @@ export const useReduxPlaygroundStyles = makeStyles((theme) => {
       alignItems: 'center',
       flexDirection: 'column',
       gap: '1rem',
+    },
+    reduxPlayground__todos: {
+      marginTop: '1rem',
+      height: '280px',
+      overflow: 'auto',
+    },
+    reduxPlayground__todo: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '1rem',
+      padding: '2rem',
+      height: '4rem',
+      fontSize: '20px',
+    },
+    reduxPlayground__button: {
+      height: '50px',
+      margin: '0.54rem !important',
     },
     image: {
       height: '300px',

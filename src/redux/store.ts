@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import { dogsApi } from '../features/dogs/dogsApiSlice';
+import todoReducer from '../features/todos/todoSlice';
 
 export const store = configureStore({
   reducer: {
     [dogsApi.reducerPath]: dogsApi.reducer,
     counter: counterReducer,
+    todo: todoReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(dogsApi.middleware);
