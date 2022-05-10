@@ -8,11 +8,9 @@ import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import { NavBarProps } from './types';
-import { useNavBarStyles } from './styled';
 
 const NavBar: React.FC<NavBarProps> = (props) => {
   const { darkMode, setDarkMode } = props;
-  const classes = useNavBarStyles();
 
   const handleModeSwitch = () => {
     setDarkMode((state) => !state);
@@ -26,9 +24,15 @@ const NavBar: React.FC<NavBarProps> = (props) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position='fixed'>
-        <Toolbar className={classes.toolbar}>
+        <Toolbar
+          sx={{
+            maxWidth: '1440px',
+            width: '100vw',
+            margin: '0 auto',
+          }}
+        >
           <IconButton
             onClick={scrollToTop}
             size='large'
@@ -37,7 +41,7 @@ const NavBar: React.FC<NavBarProps> = (props) => {
             aria-label='menu'
             sx={{ mr: 2 }}
           >
-            <CatchingPokemonIcon className={classes.navBar__icon} />
+            <CatchingPokemonIcon sx={{ transform: 'scale(1.7)' }} />
           </IconButton>
           <Typography
             onClick={scrollToTop}

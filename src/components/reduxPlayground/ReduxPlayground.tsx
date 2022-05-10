@@ -8,7 +8,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { useReduxPlaygroundStyles } from './styled';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import {
   increase,
@@ -19,10 +18,11 @@ import { useFetchBreedsQuery } from '../../features/dogs/dogsApiSlice';
 import { addTodo, deleteTodo } from '../../features/todos/todoSlice';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ReduxPlaygroundProps } from './types';
+import PrimaryTitle from '../ui/PrimaryTitle';
 
 const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
   const { darkMode } = props;
-  const classes = useReduxPlaygroundStyles();
+
   const [numDogs, setNumDogs] = useState<number>(1);
   const [value, setValue] = useState<string>('');
 
@@ -63,15 +63,35 @@ const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
 
   return (
     <>
-      <Typography sx={{ textAlign: 'center', padding: '1rem' }} variant='h4'>
-        Redux playground
-      </Typography>
-      <Box className={classes.reduxPlayground}>
-        <Box className={classes.reduxPlayground__left}>
+      <PrimaryTitle>Redux playground</PrimaryTitle>
+      <Box
+        sx={{
+          maxWidth: '1440px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '1rem',
+          '@media(max-width: 800px)': {
+            gridTemplateColumns: '1fr',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1rem',
+            margin: '1rem',
+          }}
+        >
           {/* -- COUNTER -- */}
           <Box>
             <Button
-              className={classes.reduxPlayground__button}
+              sx={{
+                height: '50px',
+                margin: '0.54rem !important',
+              }}
               variant='contained'
               onClick={handleDecrease}
             >
@@ -86,14 +106,20 @@ const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
               </Typography>
             </Button>
             <Button
-              className={classes.reduxPlayground__button}
+              sx={{
+                height: '50px',
+                margin: '0.54rem !important',
+              }}
               variant='contained'
               onClick={handleIncrease}
             >
               <Typography variant='h5'>+</Typography>
             </Button>
             <Button
-              className={classes.reduxPlayground__button}
+              sx={{
+                height: '50px',
+                margin: '0.54rem !important',
+              }}
               variant='contained'
               onClick={handleAmountAdded}
             >
@@ -118,10 +144,24 @@ const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
             >
               Add Todo
             </Button>
-            <Box className={classes.reduxPlayground__todos}>
+            <Box
+              sx={{
+                marginTop: '1rem',
+                height: '280px',
+                overflow: 'auto',
+              }}
+            >
               {todo.map(({ description, id }, index) => (
                 <Paper
-                  className={classes.reduxPlayground__todo}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '1rem',
+                    padding: '2rem',
+                    height: '4rem',
+                    fontSize: '20px',
+                  }}
                   key={index}
                   elevation={darkMode ? 16 : 4}
                 >
@@ -156,11 +196,23 @@ const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
               <MenuItem value={5}>5</MenuItem>
             </Select>
           </Typography>
-          <Box className={classes.reduxPlayground__right}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+              gap: '1rem',
+            }}
+          >
             {!isFetching
               ? data.map((dog) => (
                   <img
-                    className={classes.image}
+                    style={{
+                      height: '300px',
+                      width: '400px',
+                      objectFit: 'cover',
+                    }}
                     key={dog.id}
                     src={dog.image.url}
                     alt={dog.name}

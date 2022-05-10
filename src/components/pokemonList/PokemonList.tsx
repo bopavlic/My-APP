@@ -8,15 +8,14 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import { usePokemonListStyles } from './styled';
 import { capitalizeFirstLetter } from '../../services/helpers/capitalizeFirstLetter';
+import PrimaryTitle from '../ui/PrimaryTitle';
 
 const PokemonList: React.FC<PokemonListProps> = (props) => {
   const { darkMode } = props;
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const classes = usePokemonListStyles();
 
   const handlePageChange = async (
     event: React.ChangeEvent<any>,
@@ -51,17 +50,35 @@ const PokemonList: React.FC<PokemonListProps> = (props) => {
   }, [pageNumber]);
 
   return (
-    <Box className={classes.pokemonList}>
-      <Typography sx={{ textAlign: 'center', padding: '1rem' }} variant='h4'>
-        Pokemon list
-      </Typography>
-      <Box className={classes.pokemonList__inner}>
+    <Box
+      sx={{
+        maxWidth: '1440px',
+        margin: '0 auto',
+      }}
+    >
+      <PrimaryTitle>Pokemon list</PrimaryTitle>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '1rem',
+          margin: '0 auto',
+          justifyContent: 'center',
+        }}
+      >
         {/* -- showing fetched pokemons */}
         {!isLoading ? (
           pokemonList?.map((pokemon: Pokemon, index: number) => (
             <Paper
               key={index}
-              className={classes.paper}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+                width: '19rem',
+                height: '19rem',
+              }}
               elevation={darkMode ? 16 : 4}
             >
               <Typography variant='h5'>
