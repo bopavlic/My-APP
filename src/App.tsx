@@ -1,22 +1,30 @@
-import { useState } from 'react';
 import './App.css';
 import NavBar from './components/navBar/NavBar';
 import { Paper } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { darkTheme, theme } from './style/theme';
-import PokemonList from './components/pokemonList/PokemonList';
-import ReduxPlayground from './components/reduxPlayground/ReduxPlayground';
+import { Route, Routes } from 'react-router-dom';
+import Homepage from './components/homepage/Homepage';
+import { useAppSelector } from './redux/hooks';
+import PokemonBgImg from './assets/images/pokemonBgImg.png';
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const darkMode = useAppSelector((state) => state.darkMode);
 
   return (
     <div className='app'>
       <ThemeProvider theme={darkMode ? darkTheme : theme}>
-        <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Paper sx={{ borderRadius: 0 }}>
-          <PokemonList darkMode={darkMode} />
-          <ReduxPlayground darkMode={darkMode} />
+        <NavBar />
+        <Paper
+          sx={{
+            borderRadius: 0,
+            backgroundImage: `url(${PokemonBgImg})`,
+            backgroundRepeat: 'repeat',
+          }}
+        >
+          <Routes>
+            <Route path='/' element={<Homepage />} />
+          </Routes>
         </Paper>
       </ThemeProvider>
     </div>
