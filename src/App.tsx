@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Homepage from './components/homepage/Homepage';
 import { useAppSelector } from './redux/hooks';
 import PokemonBgImg from './assets/images/pokemonBgImg.png';
+import PokemonDetails from './components/pokemons/PokemonDetails';
 
 const App = () => {
   const darkMode = useAppSelector((state) => state.darkMode);
@@ -24,6 +25,7 @@ const App = () => {
         >
           <Routes>
             <Route path='/' element={<Homepage />} />
+            <Route path='/pokemon/:id' element={<PokemonDetails />} />
           </Routes>
         </Paper>
       </ThemeProvider>

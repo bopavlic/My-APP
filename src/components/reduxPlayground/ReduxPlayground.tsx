@@ -60,12 +60,18 @@ const ReduxPlayground: React.FC = () => {
   };
 
   return (
-    <Paper sx={{ maxWidth: '1440px', margin: '0 auto' }}>
+    <Paper
+      sx={{
+        maxWidth: '1440px',
+        margin: '0 auto',
+        padding: '0 2.5rem 2.5rem 0',
+      }}
+    >
       <PrimaryTitle>Redux playground</PrimaryTitle>
       <Box
         sx={{
           maxWidth: '1440px',
-          margin: '0 auto',
+          margin: '5rem auto 0 auto',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: '1rem',
@@ -208,7 +214,7 @@ const ReduxPlayground: React.FC = () => {
               ? data.map((dog) => (
                   <img
                     style={{
-                      height: '300px',
+                      height: '280px',
                       width: '400px',
                       objectFit: 'cover',
                     }}
