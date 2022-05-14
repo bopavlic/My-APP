@@ -6,7 +6,7 @@ import { darkTheme, theme } from './style/theme';
 import { Route, Routes } from 'react-router-dom';
 import Homepage from './components/homepage/Homepage';
 import { useAppSelector } from './redux/hooks';
-import PokemonBgImg from './assets/images/pokemonBgImg.png';
+import PokemonBgImg from './assets/images/pokemonBgImg.jpg';
 import PokemonDetails from './components/pokemons/PokemonDetails';
 
 const App = () => {

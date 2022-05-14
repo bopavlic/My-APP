@@ -2,7 +2,7 @@ import { Button, Paper, Typography } from '@mui/material';
 import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter';
 import { useAppSelector } from '../../redux/hooks';
 import { PokemonCardProps } from './types';
-import PikachusImg from '../../assets/images/pikachu.png';
+import PikachusImg from '../../assets/images/pikachu.jpg';
 import { Link } from 'react-router-dom';
 
 const PokemonCard: React.FC<PokemonCardProps> = (props) => {
