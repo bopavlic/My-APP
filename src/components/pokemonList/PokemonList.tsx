@@ -1,18 +1,13 @@
 import { useState, useEffect } from 'react';
 import { fetchPokemons } from '../../services/pokemon/api';
-import { Pokemon, PokemonListProps } from './types';
-import {
-  Box,
-  CircularProgress,
-  Pagination,
-  Paper,
-  Typography,
-} from '@mui/material';
-import { capitalizeFirstLetter } from '../../services/helpers/capitalizeFirstLetter';
-import PrimaryTitle from '../ui/PrimaryTitle';
+import { Pokemon } from './types';
+import { Box, CircularProgress, Pagination } from '@mui/material';
+import PrimaryTitle from '../../ui/PrimaryTitle';
+import { scrollToTop } from '../../helpers/scrollToTop';
+import PokemonCard from '../../ui/pokemon/PokemonCard';
+// import PokemonBgImg from '../../assets/images/pbg.png';
 
-const PokemonList: React.FC<PokemonListProps> = (props) => {
-  const { darkMode } = props;
+const PokemonList: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -25,15 +20,17 @@ const PokemonList: React.FC<PokemonListProps> = (props) => {
     //page 1 is default one that loads
     if (value === 1) {
       setPageNumber(0);
-    } else {
-      setPageNumber(value);
+      scrollToTop();
+      return;
     }
+    setPageNumber(value);
+    scrollToTop();
   };
 
   const handlePokemonId = (url: string) => {
     const splitted = url.split('/');
     const id = splitted[splitted.length - 2];
-    return id;
+    return Number(id);
   };
 
   useEffect(() => {
@@ -54,6 +51,7 @@ const PokemonList: React.FC<PokemonListProps> = (props) => {
       sx={{
         maxWidth: '1440px',
         margin: '0 auto',
+        // backgroundImage: `url(${PokemonBgImg})`,
       }}
     >
       <PrimaryTitle>Pokemon list</PrimaryTitle>
@@ -68,26 +66,12 @@ const PokemonList: React.FC<PokemonListProps> = (props) => {
       >
         {/* -- showing fetched pokemons */}
         {!isLoading ? (
-          pokemonList?.map((pokemon: Pokemon, index: number) => (
-            <Paper
+          pokemonList.map((pokemon: Pokemon, index: number) => (
+            <PokemonCard
               key={index}
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-                width: '19rem',
-                height: '19rem',
-              }}
-              elevation={darkMode ? 16 : 4}
-            >
-              <Typography variant='h5'>
-                {capitalizeFirstLetter(pokemon.name)}
-              </Typography>
-              <Typography variant='h6'>
-                id: {handlePokemonId(pokemon.url)}
-              </Typography>
-            </Paper>
+              name={pokemon.name}
+              id={handlePokemonId(pokemon.url)}
+            />
           ))
         ) : (
           //show and center spinner while loading
