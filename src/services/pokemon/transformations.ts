@@ -1,4 +1,4 @@
-import { PokemonData } from '../../components/pokemonList/types';
+import { PokemonData } from '../../components/pokemons/types';
 
 export const transformToPokemon = (data: any): PokemonData => {
   return {

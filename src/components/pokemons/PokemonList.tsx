@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { fetchPokemons } from '../../services/pokemon/api';
 import { Pokemon } from './types';
-import { Box, CircularProgress, Pagination } from '@mui/material';
+import { Box, CircularProgress, Pagination, Paper } from '@mui/material';
 import PrimaryTitle from '../../ui/PrimaryTitle';
 import { scrollToTop } from '../../helpers/scrollToTop';
 import PokemonCard from '../../ui/pokemon/PokemonCard';
-// import PokemonBgImg from '../../assets/images/pbg.png';
 
 const PokemonList: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
@@ -51,7 +50,6 @@ const PokemonList: React.FC = () => {
       sx={{
         maxWidth: '1440px',
         margin: '0 auto',
-        // backgroundImage: `url(${PokemonBgImg})`,
       }}
     >
       <PrimaryTitle>Pokemon list</PrimaryTitle>
@@ -64,7 +62,6 @@ const PokemonList: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        {/* -- showing fetched pokemons */}
         {!isLoading ? (
           pokemonList.map((pokemon: Pokemon, index: number) => (
             <PokemonCard
@@ -74,19 +71,28 @@ const PokemonList: React.FC = () => {
             />
           ))
         ) : (
-          //show and center spinner while loading
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <CircularProgress />
           </Box>
         )}
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
-        <Pagination
-          onChange={handlePageChange}
-          page={pageNumber}
-          count={56}
-          size='large'
-        />
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '2rem',
+        }}
+      >
+        <Paper sx={{ padding: '1rem', borderRadius: '1rem' }}>
+          <Pagination
+            sx={{ fontSize: '2rem' }}
+            variant='outlined'
+            onChange={handlePageChange}
+            page={pageNumber}
+            count={56}
+            size='large'
+          />
+        </Paper>
       </Box>
     </Box>
   );
