@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/bopavlic/My-APP/static/css/main.267a7f98.css",
-    "main.js": "/bopavlic/My-APP/static/js/main.f8f8d512.js",
-    "static/js/787.d11025fc.chunk.js": "/bopavlic/My-APP/static/js/787.d11025fc.chunk.js",
-    "static/media/pokemonBgImg.jpg": "/bopavlic/My-APP/static/media/pokemonBgImg.cb9ae986ada498451450.jpg",
-    "static/media/pikachu.jpg": "/bopavlic/My-APP/static/media/pikachu.a00b8a453b117e5fe006.jpg",
-    "index.html": "/bopavlic/My-APP/index.html",
-    "main.267a7f98.css.map": "/bopavlic/My-APP/static/css/main.267a7f98.css.map",
-    "main.f8f8d512.js.map": "/bopavlic/My-APP/static/js/main.f8f8d512.js.map",
-    "787.d11025fc.chunk.js.map": "/bopavlic/My-APP/static/js/787.d11025fc.chunk.js.map"
+    "main.css": "/static/css/main.267a7f98.css",
+    "main.js": "/static/js/main.dcb2973c.js",
+    "static/js/787.d11025fc.chunk.js": "/static/js/787.d11025fc.chunk.js",
+    "static/media/pokemonBgImg.jpg": "/static/media/pokemonBgImg.cb9ae986ada498451450.jpg",
+    "static/media/pikachu.jpg": "/static/media/pikachu.a00b8a453b117e5fe006.jpg",
+    "index.html": "/index.html",
+    "main.267a7f98.css.map": "/static/css/main.267a7f98.css.map",
+    "main.dcb2973c.js.map": "/static/js/main.dcb2973c.js.map",
+    "787.d11025fc.chunk.js.map": "/static/js/787.d11025fc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.267a7f98.css",
-    "static/js/main.f8f8d512.js"
+    "static/js/main.dcb2973c.js"
   ]
 }
