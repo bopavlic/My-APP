@@ -13,6 +13,7 @@ import {
   handleDarkModeOn,
 } from '../../features/darkMode/darkModeSlice';
 import { scrollToTop } from '../../helpers/scrollToTop';
+import { Link } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
   const darkMode = useAppSelector((state) => state.darkMode);
@@ -36,22 +37,26 @@ const NavBar: React.FC = () => {
             margin: '0 auto',
           }}
         >
-          <IconButton
-            onClick={scrollToTop}
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: 2 }}
-          >
-            <CatchingPokemonIcon sx={{ transform: 'scale(1.7)' }} />
-          </IconButton>
+          <Link to={'/'} style={{ color: 'inherit' }}>
+            <IconButton
+              onClick={scrollToTop}
+              size='large'
+              edge='start'
+              color='inherit'
+              aria-label='menu'
+              sx={{ mr: 2 }}
+            >
+              <CatchingPokemonIcon sx={{ transform: 'scale(1.7)' }} />
+            </IconButton>
+          </Link>
           <Typography
             onClick={scrollToTop}
             variant='h5'
             sx={{ flexGrow: 1, cursor: 'pointer' }}
           >
-            POKEMON
+            <Link to={'/'} style={{ color: 'inherit', textDecoration: 'none' }}>
+              POKEMON
+            </Link>
           </Typography>
           <FormGroup>
             <FormControlLabel
