@@ -17,7 +17,7 @@ export const fetchPokemons = async (page: number): Promise<any> => {
   return transformToPokemon(data);
 };
 
-export const fetchPokemonDetails = async (id) => {
+export const fetchPokemonDetails = async (id: number): Promise<any> => {
   const response = await fetch(
     `${process.env.REACT_APP_POKEMON_API_BASE_URL}/pokemon/${id}/`,
     {

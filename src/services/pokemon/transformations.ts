@@ -1,4 +1,4 @@
-import { PokemonData } from '../../components/pokemons/types';
+import { PokemonData, PokemonDetails } from '../../components/pokemons/types';
 import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter';
 
 export const transformToPokemon = (response: any): PokemonData => {
@@ -10,7 +10,7 @@ export const transformToPokemon = (response: any): PokemonData => {
   };
 };
 
-export const transformToPokemonDetails = (response) => {
+export const transformToPokemonDetails = (response: any): PokemonDetails => {
   //destructuring
   const [moves] = response.moves;
   const { move } = moves;

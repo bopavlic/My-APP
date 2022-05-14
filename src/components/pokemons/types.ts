@@ -9,7 +9,10 @@ export interface Pokemon {
   name: string;
   url: string;
 }
-
-export interface PokemonListProps {
-  darkMode: boolean;
+export interface PokemonDetails {
+  image_url: string;
+  name: string;
+  weight: string;
+  height: string;
+  favorite_attack: string;
 }

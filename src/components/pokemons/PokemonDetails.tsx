@@ -23,7 +23,7 @@ const PokemonDetails = () => {
     (async () => {
       setIsLoading(true);
       try {
-        const result = await fetchPokemonDetails(id);
+        const result = await fetchPokemonDetails(Number(id));
         setPokemonDetails(result);
       } catch (error) {
         console.error(error);
