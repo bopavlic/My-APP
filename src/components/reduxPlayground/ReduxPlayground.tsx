@@ -17,16 +17,14 @@ import {
 import { useFetchBreedsQuery } from '../../features/dogs/dogsApiSlice';
 import { addTodo, deleteTodo } from '../../features/todos/todoSlice';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ReduxPlaygroundProps } from './types';
-import PrimaryTitle from '../ui/PrimaryTitle';
+import PrimaryTitle from '../../ui/PrimaryTitle';
 
-const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
-  const { darkMode } = props;
-
+const ReduxPlayground: React.FC = () => {
   const [numDogs, setNumDogs] = useState<number>(1);
   const [value, setValue] = useState<string>('');
 
   const dispatch = useAppDispatch();
+  const darkMode = useAppSelector((state) => state.darkMode);
   const counter = useAppSelector((state) => state.counter.value);
   const todo = useAppSelector((state) => state.todo);
 
@@ -62,7 +60,7 @@ const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
   };
 
   return (
-    <>
+    <Paper sx={{ maxWidth: '1440px', margin: '0 auto' }}>
       <PrimaryTitle>Redux playground</PrimaryTitle>
       <Box
         sx={{
@@ -71,6 +69,7 @@ const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: '1rem',
+
           '@media(max-width: 800px)': {
             gridTemplateColumns: '1fr',
           },
@@ -216,13 +215,14 @@ const ReduxPlayground: React.FC<ReduxPlaygroundProps> = (props) => {
                     key={dog.id}
                     src={dog.image.url}
                     alt={dog.name}
+                    loading='lazy'
                   />
                 ))
               : 'Loading...'}
           </Box>
         </Box>
       </Box>
-    </>
+    </Paper>
   );
 };
 

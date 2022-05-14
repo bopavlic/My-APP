@@ -7,20 +7,23 @@ import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import { NavBarProps } from './types';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import {
+  handleDarkModeOff,
+  handleDarkModeOn,
+} from '../../features/darkMode/darkModeSlice';
+import { scrollToTop } from '../../helpers/scrollToTop';
 
-const NavBar: React.FC<NavBarProps> = (props) => {
-  const { darkMode, setDarkMode } = props;
+const NavBar: React.FC = () => {
+  const darkMode = useAppSelector((state) => state.darkMode);
+  const dispatch = useAppDispatch();
 
   const handleModeSwitch = () => {
-    setDarkMode((state) => !state);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    if (darkMode) {
+      dispatch(handleDarkModeOff());
+      return;
+    }
+    dispatch(handleDarkModeOn());
   };
 
   return (
