@@ -28,6 +28,5 @@ export const fetchPokemonDetails = async (id: number): Promise<any> => {
   );
 
   const data = await response.json();
-  console.log(data);
   return transformToPokemonDetails(data);
 };
