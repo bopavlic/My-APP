@@ -16,6 +16,6 @@ p {
 
 /* prevent hiding content behind NavBar */
 body {
-  padding-top: 65px;
-  min-width: 400px;
+  padding-top: 64px;
+  min-width: 350px;
 }
