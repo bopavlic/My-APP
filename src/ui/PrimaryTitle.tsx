@@ -8,7 +8,7 @@ const PrimaryTitle: React.FC<PrimaryTitleProps> = (props) => {
     <Typography
       sx={{
         padding: '1rem 0',
-        MaxWidth: '380px',
+        MaxWidth: '360px',
         fontWeight: 'bold',
         margin: '0 auto',
         textAlign: 'center',

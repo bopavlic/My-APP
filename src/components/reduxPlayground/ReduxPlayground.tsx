@@ -146,7 +146,7 @@ const ReduxPlayground: React.FC = () => {
               variant='contained'
               onClick={addTodoHandler}
             >
-              Add Todo
+              Add
             </Button>
             <Box
               sx={{

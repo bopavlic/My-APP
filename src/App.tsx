@@ -9,9 +9,17 @@ import { useAppSelector } from './redux/hooks';
 import PokemonBgImg from './assets/images/pokemonBgImg.jpg';
 import PokemonDetails from './components/pokemons/PokemonDetails';
 import Footer from './components/footer/Footer';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { scrollToTop } from './helpers/scrollToTop';
 
 const App = () => {
   const darkMode = useAppSelector((state) => state.darkMode);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    scrollToTop();
+  }, [pathname]);
 
   return (
     <div className='app'>

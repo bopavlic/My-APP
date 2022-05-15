@@ -20,9 +20,19 @@ const PokemonCard: React.FC<PokemonCardProps> = (props) => {
       }}
       elevation={darkMode ? 16 : 4}
     >
-      <Typography sx={{ marginBottom: '2rem' }} variant='h5'>
+      <Typography
+        sx={{ marginBottom: '2rem', textAlign: 'center' }}
+        variant='h5'
+      >
+        id: {id}
+      </Typography>
+      <Typography
+        sx={{ marginBottom: '2rem', textAlign: 'center' }}
+        variant='h5'
+      >
         {capitalizeFirstLetter(name)}
       </Typography>
+
       <Link style={{ textDecoration: 'none' }} to={`pokemon/${id}`}>
         <Button
           sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}
@@ -33,7 +43,7 @@ const PokemonCard: React.FC<PokemonCardProps> = (props) => {
       </Link>
       <img
         src={PikachusImg}
-        style={{ position: 'relative', top: '70px', height: '59px' }}
+        style={{ position: 'relative', top: '38px', height: '59px' }}
         alt='pikachu'
       />
     </Paper>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { initialPokemonDetails } from './consts';
 import {
   Button,
@@ -14,7 +14,6 @@ import { Box } from '@mui/system';
 
 const PokemonDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [pokemonDetails, setPokemonDetails] = useState(initialPokemonDetails);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -61,13 +60,11 @@ const PokemonDetails = () => {
               </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button
-                variant='outlined'
-                size='small'
-                onClick={() => navigate(-1)}
-              >
-                Go Back
-              </Button>
+              <Link to={'/'}>
+                <Button variant='outlined' size='small'>
+                  Go Back
+                </Button>
+              </Link>
             </CardActions>
           </Card>
         </Box>
