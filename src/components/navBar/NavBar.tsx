@@ -29,7 +29,7 @@ const NavBar: React.FC = () => {
 
   return (
     <Box>
-      <AppBar position='fixed'>
+      <AppBar position='fixed' sx={{ height: '64px' }}>
         <Toolbar
           sx={{
             maxWidth: '1440px',

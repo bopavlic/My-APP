@@ -7,11 +7,11 @@ const PrimaryTitle: React.FC<PrimaryTitleProps> = (props) => {
   return (
     <Typography
       sx={{
-        textAlign: 'center',
-        padding: '1rem',
+        padding: '1rem 0',
         width: '25rem',
-        margin: ' auto',
         fontWeight: 'bold',
+        margin: '0 auto',
+        textAlign: 'center',
       }}
       variant='h3'
     >

@@ -62,20 +62,19 @@ const ReduxPlayground: React.FC = () => {
   return (
     <Paper
       sx={{
-        maxWidth: '1440px',
-        margin: '0 auto',
-        padding: '0 2.5rem 2.5rem 0',
+        marginBottom: '2rem',
+        '@media(min-width: 1280px)': {
+          minWidth: '1275px',
+        },
       }}
     >
       <PrimaryTitle>Redux playground</PrimaryTitle>
       <Box
         sx={{
-          maxWidth: '1440px',
           margin: '5rem auto 0 auto',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: '1rem',
-
           '@media(max-width: 800px)': {
             gridTemplateColumns: '1fr',
           },
@@ -215,8 +214,9 @@ const ReduxPlayground: React.FC = () => {
                   <img
                     style={{
                       height: '280px',
-                      width: '400px',
+                      width: '300px',
                       objectFit: 'cover',
+                      marginBottom: '2rem',
                     }}
                     key={dog.id}
                     src={dog.image.url}

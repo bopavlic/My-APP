@@ -9,7 +9,8 @@ const Footer = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: '7vh',
-          marginTop: '2rem',
+          width: '100%',
+          borderRadius: 0,
         }}
       >
         <Typography sx={{ letterSpacing: '0.2rem' }}>

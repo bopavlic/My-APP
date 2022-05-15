@@ -8,6 +8,7 @@ import Homepage from './components/homepage/Homepage';
 import { useAppSelector } from './redux/hooks';
 import PokemonBgImg from './assets/images/pokemonBgImg.jpg';
 import PokemonDetails from './components/pokemons/PokemonDetails';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   const darkMode = useAppSelector((state) => state.darkMode);
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/pokemon/:id' element={<PokemonDetails />} />
           </Routes>
         </Paper>
+        <Footer />
       </ThemeProvider>
     </div>
   );

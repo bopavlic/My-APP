@@ -49,7 +49,6 @@ const PokemonList: React.FC = () => {
     <Box
       sx={{
         maxWidth: '1440px',
-        margin: '0 auto',
       }}
     >
       <PrimaryTitle>Pokemon list</PrimaryTitle>
@@ -58,7 +57,6 @@ const PokemonList: React.FC = () => {
           display: 'flex',
           flexWrap: 'wrap',
           gap: '1rem',
-          margin: '0 auto',
           justifyContent: 'center',
         }}
       >
