@@ -60,7 +60,10 @@ const PokemonDetails = () => {
               </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Link to={'/'}>
+              <Link
+                to={'/'}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
                 <Button variant='outlined' size='small'>
                   Go Back
                 </Button>
